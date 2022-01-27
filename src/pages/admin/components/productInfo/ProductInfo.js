@@ -8,13 +8,8 @@ export default function ProductInfo() {
     { name: 'c', selected: true },
   ];
   const attr = {
-    width: '300px',
+    width: '200px',
     height: '50px',
   };
-  return (
-    <div>
-      test
-      <FormSelect attr={attr} option={option} />;
-    </div>
-  );
+  return <FormSelect attr={attr} option={option} />;
 }
