@@ -4,6 +4,7 @@ const Theme = {
   borderColor: 'orange',
   pointColor: '#342F6A',
   font: "'Noto Sans KR', sans-serif",
+  borderRadius: 250,
 };
 
 export default Theme;
