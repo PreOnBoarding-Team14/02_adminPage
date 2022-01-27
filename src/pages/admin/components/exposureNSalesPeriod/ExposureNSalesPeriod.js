@@ -1,14 +1,19 @@
+import { FormTextArea } from 'components';
+import { useCallback } from 'react';
 import styled from 'styled-components';
 import { FormCheckBox } from 'components';
 
 export default function ExposureNSalesPeriod() {
-  const categories = [{ name: '등심' }, { name: '안심' }, { name: '갈비' }];
-
+  const onChange = useCallback(() => console.log('onChange'));
   return (
-    <div>
-      {categories.map((ele, idx) => {
-        return <FormCheckBox key={idx} categoryName={ele.name} />;
-      })}
-    </div>
+    <FormTextArea
+      attrs={{
+        name: '모야',
+        placeholder: '검색어를 입력해주세요',
+        onChange,
+        rows: 3,
+        cols: 3,
+      }}
+    />
   );
 }
