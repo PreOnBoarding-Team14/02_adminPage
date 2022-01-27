@@ -2,11 +2,13 @@ import styled from 'styled-components';
 import { FormCheckBox } from 'components';
 
 export default function ExposureNSalesPeriod() {
-  const categoryName = '등심';
+  const categories = [{ name: '등심' }, { name: '안심' }, { name: '갈비' }];
 
   return (
     <div>
-      <FormCheckBox categoryName={categoryName} />
+      {categories.map((ele, idx) => {
+        return <FormCheckBox key={idx} categoryName={ele.name} />;
+      })}
     </div>
   );
 }

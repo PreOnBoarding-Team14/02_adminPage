@@ -5,6 +5,7 @@ const CheckBoxAndCategory = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 const CheckBoxWrapper = styled.div`
