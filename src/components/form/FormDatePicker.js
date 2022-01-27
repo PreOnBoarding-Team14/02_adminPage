@@ -7,24 +7,21 @@ export default function FormDatePicker({ attr }) {
 
 		Date type : 날짜와 시간 둘 다 표기하는 경우, 날짜만 표기하는 경우
 	*/
+  const { title, disabled, type, onChange } = attr;
   const getShowTimeOption = (type) => (type === 'date' ? false : true);
 
   return (
     <>
-      <label>{attr.title}</label>
+      <label>{title}</label>
       <DatePicker
-        disabled={attr.disabled}
-        onChange={attr.onChange()}
-        showTime={getShowTimeOption(attr.type)}
+        disabled={disabled}
+        onChange={onChange}
+        showTime={getShowTimeOption(type)}
       />
       {attr.isRange ? (
         <>
           ~
-          <DatePicker
-            disabled={attr.disabled}
-            onChange={attr.onChange()}
-            showTime={getShowTimeOption(attr.type)}
-          />
+          <DatePicker disabled={disabled} onChange={onChange} showTime={type} />
         </>
       ) : null}
     </>
