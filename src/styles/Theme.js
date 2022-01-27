@@ -1,6 +1,7 @@
 const Theme = {
   bgColor: '#F7F7F7',
   subBgColor: '#C9C9C9',
+  borderColor: 'orange',
   pointColor: '#342F6A',
   font: "'Noto Sans KR', sans-serif",
   borderRadius: 250,
