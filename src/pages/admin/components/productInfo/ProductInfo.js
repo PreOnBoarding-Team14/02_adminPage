@@ -11,5 +11,10 @@ export default function ProductInfo() {
     width: '300px',
     height: '50px',
   };
-  return <FormSelect attr={attr} option={option} />;
+  return (
+    <div>
+      test
+      <FormSelect attr={attr} option={option} />;
+    </div>
+  );
 }
