@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const ToggleWrapper = styled.button`
@@ -8,7 +8,7 @@ const ToggleWrapper = styled.button`
   justify-content: center;
   width: 50px;
   height: 20px;
-  margin: 20px 0px;
+  margin: 20px;
   background: none;
   border: none;
   cursor: pointer;
@@ -18,20 +18,11 @@ const ToggleCircle = styled.div`
   position: absolute;
   ${(props) => (props.isClick ? 'right: 0;' : 'left: 0;')};
   width: 22px;
-  left: 2px;
-  bottom: 2px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: transform 0.2s linear;
-  background-color: blue;
-
-  ${(attr) =>
-    attr.checked &&
-    css`
-       {
-        transform: translateX(24px);
-      }
-    `};
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid ${(props) => (props.isClick ? '#2A18BD;' : 'gray;')};
+  background: ${(props) => (props.isClick ? '#2A18BD;' : 'white;')};
+`;
 
 const ToggleBackground = styled.div`
   width: 35px;
@@ -40,8 +31,7 @@ const ToggleBackground = styled.div`
   background: ${(props) => (props.isClick ? '#AEA8E6;' : '#9F9F9F;')};
 `;
 
-export default function FormToggle() {
-  const [isClick, setIsClick] = useState(false);
+export default function FormToggle({ isClick, setIsClick }) {
   const clickToggle = () => {
     setIsClick(!isClick);
   };
