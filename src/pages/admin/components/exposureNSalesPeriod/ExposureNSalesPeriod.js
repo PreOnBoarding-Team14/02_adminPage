@@ -45,4 +45,7 @@ export default function ExposureNSalesPeriod() {
       </RowWrapper>
     </Container>
   );
+
+export default function ExposureNSalesPeriod() {
+  return null;
 }

@@ -1,30 +1,22 @@
-import styled, { css } from 'styled-components';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-const Switch = styled.label`
+const ToggleWrapper = styled.button`
   position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-`;
-
-const SwitchCheckbox = styled.input`
-  opacity: 0;
-  width: 0;
-  height: 0;
-  display: none;
-`;
-const SwitchLabel = styled.label`
-  position: relative;
-  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50px;
-  border-radius: 50px;
-  background-color: gray;
+  height: 20px;
+  margin: 20px 0px;
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 
-const Ball = styled.div`
+const ToggleCircle = styled.div`
   position: absolute;
-  content: '';
-  height: 22px;
+  ${(props) => (props.isClick ? 'right: 0;' : 'left: 0;')};
   width: 22px;
   left: 2px;
   bottom: 2px;
@@ -40,18 +32,23 @@ const Ball = styled.div`
         transform: translateX(24px);
       }
     `};
+
+const ToggleBackground = styled.div`
+  width: 35px;
+  height: 15px;
+  border-radius: 100px;
+  background: ${(props) => (props.isClick ? '#AEA8E6;' : '#9F9F9F;')};
 `;
 
-export default function FormToggle({ attr }) {
-  const { title, checked, onChange } = attr;
-
+export default function FormToggle() {
+  const [isClick, setIsClick] = useState(false);
+  const clickToggle = () => {
+    setIsClick(!isClick);
+  };
   return (
-    <>
-      {!!title ? <label>{title}</label> : null}
-      <SwitchCheckbox>
-        <SwitchLabel type="checkbox" checked={checked} onChange={onChange} />
-        <Ball />
-      </SwitchCheckbox>
-    </>
+    <ToggleWrapper onClick={clickToggle}>
+      <ToggleCircle isClick={isClick} />
+      <ToggleBackground isClick={isClick} />
+    </ToggleWrapper>
   );
 }
