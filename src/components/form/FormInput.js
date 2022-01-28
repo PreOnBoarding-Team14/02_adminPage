@@ -9,6 +9,7 @@ export default function FormInput({ attr }) {
       </label>
       <input
         type="text"
+        placeholder={attr.placeholder}
         minLength={attr.minLength}
         maxLength={attr.maxLength}
       />
