@@ -72,11 +72,11 @@ export default function FormAddImg({ AddImgType }) {
   const handleChangeFile = (event) => {
     for (let i = 0; i < event.target.files.length; i++) {
       if (imgNames.includes(event.target.files[i].name)) {
-        imgNames = imgNames.filter(
+        const duplicatiedEle = imgNames.filter(
           (element) => element !== event.target.files[i].name
         );
-        console.log(imgNames);
-        imgNames.unshift(event.target.files[i].name);
+        duplicatiedEle.unshift(event.target.files[i].name);
+        setImgNames(duplicatiedEle);
       } else {
         imgNames.unshift(event.target.files[i].name);
       }
