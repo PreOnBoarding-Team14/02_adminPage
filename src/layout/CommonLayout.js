@@ -1,3 +1,4 @@
+import Admin from 'pages/admin/Admin';
 import styled from 'styled-components';
 import Tab from './Tab';
 
@@ -53,7 +54,7 @@ const Overview = styled.div`
   padding: 25px;
   display: flex;
   justify-content: center;
-  background-color: ${({ theme }) => theme.bgColor};
+  background-color: ${({ theme }) => theme.mainBgColor};
 `;
 
 const ContentGrid = styled.div`
@@ -73,11 +74,12 @@ const Menu = styled.div`
 
 const Content = styled.div`
   display: flex;
-  background-color: white;
+  background-color: ${({ theme }) => theme.mainBgColor};
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
   width: 100%;
+  padding: 20px 25px;
 `;
 
 const Items = styled.ul`
@@ -92,7 +94,7 @@ const Items = styled.ul`
 
 const Item = styled.li`
   display: flex;
-  background-color: ${({ theme }) => theme.bgColor};
+  background-color: ${({ theme }) => theme.mainBgColor};
   align-items: center;
   width: 100%;
   height: 100%;
@@ -133,7 +135,7 @@ const MainHeaderButton = styled.div`
   padding: 10px 17px;
   background-color: ${({ theme }) => theme.pointColor};
   border-radius: 5px;
-  color: ${({ theme }) => theme.bgColor};
+  color: ${({ theme }) => theme.mainBgColor};
   cursor: pointer;
 `;
 
@@ -188,7 +190,7 @@ export function CommonLayout() {
               <Items></Items>
             </BigItems>
             <Content>
-              <Menu />
+              <Admin />
             </Content>
           </Row>
         </ContentGrid>
