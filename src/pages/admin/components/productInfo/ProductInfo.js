@@ -398,7 +398,6 @@ const TAG = [
 ];
 
 export default function ProductInfo() {
-<<<<<<< HEAD
   const [product, setProduct] = useState(DATA);
   const [isCheck, setIsCheck] = useState(0);
   const [focus, setFocus] = useState(false);
@@ -657,8 +656,5 @@ export default function ProductInfo() {
         </Cols>
       </Grid>
     </Container>
-  );
-=======
-  return null;
->>>>>>> d28f4d45ecb4944360ed6f3a8c6204fa8ab11e3a
+  )
 }

@@ -18,11 +18,20 @@ const ToggleCircle = styled.div`
   position: absolute;
   ${(props) => (props.isClick ? 'right: 0;' : 'left: 0;')};
   width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 1px solid ${(props) => (props.isClick ? '#2A18BD;' : 'gray;')};
-  background: ${(props) => (props.isClick ? '#2A18BD;' : 'white;')};
-`;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: transform 0.2s linear;
+  background-color: blue;
+
+  ${(attr) =>
+    attr.checked &&
+    css`
+       {
+        transform: translateX(24px);
+      }
+    `};
 
 const ToggleBackground = styled.div`
   width: 35px;
