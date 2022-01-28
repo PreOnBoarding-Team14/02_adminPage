@@ -4,3 +4,4 @@ export { default as FormInput } from './form/FormInput';
 export { default as FormSelect } from './form/FormSelect';
 export { default as FormRadio } from './form/FormRadio';
 export { default as FormDatePicker } from './form/FormDatePicker';
+export { default as FormToggle } from './form/FormToggle';
