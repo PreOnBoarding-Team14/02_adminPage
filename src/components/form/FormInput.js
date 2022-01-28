@@ -18,9 +18,10 @@ const Input = styled.input`
 `;
 
 export default function FormInput({ attr }) {
-  const { placeholder, minLength, maxLength } = attr;
+  const { placeholder, minLength, maxLength, onChange } = attr;
   return (
     <Input
+      onChange={onChange}
       type="text"
       placeholder={placeholder}
       minLength={minLength}
