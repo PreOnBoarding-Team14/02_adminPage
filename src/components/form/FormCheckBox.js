@@ -1,49 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const CheckBoxAndCategory = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-const CheckBoxWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 5px;
+const CheckBox = styled.input`
   width: 25px;
+  flex-direction: column;
   height: 25px;
-  background: ${(props) => (props.isCheck ? '#342F6A' : 'white')};
-  border: 1px solid ${(props) => (props.isCheck ? '#342F6A' : 'gray')};
-  border-radius: 5px;
+  display: flex;
 `;
 
-const CheckBox = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
+const Label = styled.label`
+  display: flex;
+  flex-direction: column;
 `;
 
-const CategoryName = styled.p``;
+const CheckAndText = styled.div`
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+`;
 
-export default function FormCheckBox({ categoryName }) {
-  const [isCheck, setIsCheck] = useState(false);
+const Text = styled.div`
+  margin-left: 10px;
+`;
 
-  const clickCheckBox = () => {
-    setIsCheck(!isCheck);
-  };
-
-  console.log(isCheck);
+export default function FormCheckBox({ attrs }) {
+  const { name, data } = attrs;
 
   return (
-    <CheckBoxAndCategory>
-      <CheckBoxWrapper onClick={clickCheckBox} isCheck={isCheck}>
-        <CheckBox isCheck={isCheck}>✔</CheckBox>
-      </CheckBoxWrapper>
-      <CategoryName>{categoryName}</CategoryName>
-    </CheckBoxAndCategory>
+    <form>
+      {data.map((item, idx) => (
+        <Label key={idx}>
+          <CheckAndText>
+            <CheckBox type="checkbox" value={item} name={name} />
+            <Text>{item}</Text>
+          </CheckAndText>
+        </Label>
+      ))}
+    </form>
   );
 }
