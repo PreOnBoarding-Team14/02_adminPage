@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 
 const AddImageWrapper = styled.div`
-  margin: 20px 0px;
   width: 100%;
   border: 1px solid ${({ theme }) => theme.borderGrayColor};
 `;
@@ -83,10 +82,12 @@ export default function FormAddOneImg({ AddImgType, InputId }) {
 
   return (
     <AddImageWrapper>
-      <TopText>{AddImgType}</TopText>
+      <TopText style={{ display: AddImgType ? 'visible' : 'none' }}>
+        {AddImgType}
+      </TopText>
       <BottomContent>
         <AddImageButtonWrapper>
-          <AddImageButton for={InputId}>+ 이미지 추가</AddImageButton>
+          <AddImageButton htmlFor={InputId}>+ 이미지 추가</AddImageButton>
           <AddImageButtonInput
             type="file"
             accept="image/*"
