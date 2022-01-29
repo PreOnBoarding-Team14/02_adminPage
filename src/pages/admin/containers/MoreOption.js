@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import ProductOptionStyled from '../components/productOption/ProductOptionStyled';
+
+const { DeleteBtn, MoreOptionInput, MoreOptionWrapper, DiscountPrice } =
+  ProductOptionStyled;
 
 export default function MoreOption({ onEvent, moreOptionItemId }) {
   const [moreOptionProps, setMoreOptionProps] = useState({
@@ -12,24 +16,25 @@ export default function MoreOption({ onEvent, moreOptionItemId }) {
   };
 
   return (
-    <div>
-      {/* ㄴ 자 모양..? */}
-      <input
+    <MoreOptionWrapper>
+      <MoreOptionInput
         type="text"
         name="moreOptionName"
         onChange={onChange}
         placeholder="추가 옵션명 (필수)"
       />
-      <input
-        type="text"
+      <MoreOptionInput
+        type="number"
         name="moreOptionPrice"
         onChange={onChange}
         placeholder="추가 옵션 정상가 (필수)"
       />
-      <span>원</span>
-      <button onClick={(e) => onEvent(e, 'deleteMoreOption', moreOptionItemId)}>
+      <DiscountPrice>원</DiscountPrice>
+      <DeleteBtn
+        onClick={(e) => onEvent(e, 'deleteMoreOption', moreOptionItemId)}
+      >
         삭제
-      </button>
-    </div>
+      </DeleteBtn>
+    </MoreOptionWrapper>
   );
 }

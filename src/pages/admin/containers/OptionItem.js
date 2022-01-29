@@ -12,6 +12,7 @@ const {
   DeleteBtnWrapper,
   TextUnit,
   PlusOptionButton,
+  DiscountPrice,
 } = ProductOptionStyled;
 
 const selectAttr = [
@@ -48,7 +49,7 @@ function OptionItem({ optionItemId, onDelete }) {
     const discountPrice = Math.floor(
       (optionProps.salesPrice / optionProps.normalPrice) * 100
     );
-    return discountPrice < 1 ? `${discountPrice} %` : '할인율 없음';
+    return discountPrice > 1 ? `(${discountPrice}%)` : '(할인율없음)';
   };
 
   const onEvent = (e, type, id) => {
@@ -101,21 +102,21 @@ function OptionItem({ optionItemId, onDelete }) {
       />
       <PriceInputWrapper>
         <PriceInput
-          type="text"
+          type="number"
           name="normalPrice"
           placeholder="상품 정상가 (필수)"
           onChange={(e) => onEvent(e, 'changeOption')}
         />
         <TextUnit>원</TextUnit>
-        <label>{getDiscountRate}</label>
+        <DiscountPrice>{getDiscountRate()}</DiscountPrice>
         <PriceInput
-          type="text"
+          type="number"
           name="salesPrice"
           placeholder="상품 판매가 (필수)"
           onChange={(e) => onEvent(e, 'changeOption')}
         />
         <TextUnit>원</TextUnit>
-        <PriceInput type="text" name="stock" placeholder="재고 (필수)" />
+        <PriceInput type="number" name="stock" placeholder="재고 (필수)" />
         <TextUnit>개</TextUnit>
         <FormSelect attr={selectAttr} option={selectOptionList} />
       </PriceInputWrapper>
