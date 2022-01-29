@@ -17,7 +17,7 @@ const TopText = styled.div`
 
 const BottomContent = styled.div`
   display: flex;
-  min-height: 140px;
+  min-height: 60px;
 `;
 
 const AddImageButtonWrapper = styled.div``;
@@ -66,27 +66,19 @@ const ImageDeleteButton = styled.button`
   cursor: pointer;
 `;
 
-export default function FormAddImg({ AddImgType, InputId }) {
-  const [imgNames, setImgNames] = useState([]);
+export default function FormAddOneImg({ AddImgType, InputId }) {
+  const [imgName, setImgName] = useState([]);
 
   const handleChangeFile = (event) => {
-    for (let i = 0; i < event.target.files.length; i++) {
-      if (imgNames.includes(event.target.files[i].name)) {
-        const duplicatiedEle = imgNames.filter(
-          (element) => element !== event.target.files[i].name
-        );
-        duplicatiedEle.unshift(event.target.files[i].name);
-        setImgNames(duplicatiedEle);
-      } else {
-        imgNames.unshift(event.target.files[i].name);
-      }
-    }
-    setImgNames((imgNames) => [...imgNames]);
+    setImgName([]);
+    const pushArr = [];
+    pushArr.push(event.target.files[0].name);
+    setImgName(pushArr);
   };
 
   const deleteImg = (ele) => {
-    const deletedArr = imgNames.filter((element) => element !== ele);
-    setImgNames(deletedArr);
+    const deletedArr = imgName.filter((element) => element !== ele);
+    setImgName(deletedArr);
   };
 
   return (
@@ -103,7 +95,7 @@ export default function FormAddImg({ AddImgType, InputId }) {
           />
         </AddImageButtonWrapper>
         <NameAndDeleteWrapper>
-          {imgNames.map((ele, idx) => (
+          {imgName.map((ele, idx) => (
             <NameAndDelete key={idx}>
               <ImageFileName>{ele}</ImageFileName>
               <ImageDeleteButton onClick={() => deleteImg(ele)}>
