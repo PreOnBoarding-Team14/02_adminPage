@@ -66,9 +66,7 @@ const ImageDeleteButton = styled.button`
   cursor: pointer;
 `;
 
-export default function FormAddImg({ AddImgType }) {
-  const [imgNames, setImgNames] = useState([]); // 파일 base64
-
+export default function FormAddImg({ AddImgType, imgNames, setImgNames }) {
   const handleChangeFile = (event) => {
     for (let i = 0; i < event.target.files.length; i++) {
       if (imgNames.includes(event.target.files[i].name)) {
@@ -98,7 +96,6 @@ export default function FormAddImg({ AddImgType }) {
             type="file"
             accept="image/*"
             id="ex_file"
-            multiple="multiple"
             onChange={handleChangeFile}
           />
         </AddImageButtonWrapper>
