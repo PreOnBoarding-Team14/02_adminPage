@@ -33,8 +33,6 @@ const AddImageButtonInput = styled.input`
   clip: rect(0, 0, 0, 0);
 `;
 
-const Image = styled.img``;
-
 export default function FormImagePreview() {
   const [preview, setPreview] = useState({});
   const onasdChange = (e) => {
@@ -52,7 +50,7 @@ export default function FormImagePreview() {
   };
   return (
     <AddImageButtonWrapper style={{ backgroundImage: `url(${preview.src})` }}>
-      <AddImageButton for="ex_file">+ 이미지 첨부</AddImageButton>
+      <AddImageButton htmlFor="ex_file">+ 이미지 첨부</AddImageButton>
       <AddImageButtonInput
         type="file"
         accept="image/*"

@@ -99,6 +99,12 @@ export default function ProductInfoNotice() {
   const [itemList, setItemList] = useState([]);
   const [sequence, setSequence] = useState(1);
 
+  // 항목 추가 후 항목삭제 버튼 클릭 시 항목 삭제 구현
+  const deleteItem = (id) => {
+    const deleteList = itemList.filter((item) => item.id !== id);
+    setItemList(deleteList);
+  };
+
   // 정보고시 삭제 버튼 클릭 이벤트
   const deleteNotice = () => {
     if (sequence === 1) {
@@ -111,7 +117,7 @@ export default function ProductInfoNotice() {
 
   // 항목 추가 버튼 클릭 이벤트
   const addItem = () => {
-    let addItemList = [...itemList, []];
+    const addItemList = [...itemList, { id: Date.now() }];
     setItemList(addItemList);
   };
 
@@ -171,14 +177,22 @@ export default function ProductInfoNotice() {
         {/* 항목 추가 버튼 클릭 시 추가되는 FormInput */}
         {itemList.map((item, index) => {
           return (
-            <CreateItem key={index}>
+            <CreateItem key={item.id} id={index}>
               <InputWrapper>
-                <FormInput attr={{ placeholder: '항목 제목 자유 입력' }} />
+                <FormInput
+                  attr={{
+                    placeholder: '항목 제목 자유 입력',
+                  }}
+                />
               </InputWrapper>
               <InputWrapper>
-                <FormInput attr={{ placeholder: '내용을 입력해주세요.' }} />
+                <FormInput
+                  attr={{
+                    placeholder: '내용을 입력해주세요.',
+                  }}
+                />
               </InputWrapper>
-              <RedButton>삭제</RedButton>
+              <RedButton onClick={() => deleteItem(item.id)}>삭제</RedButton>
             </CreateItem>
           );
         })}
