@@ -66,12 +66,6 @@ const ContentGrid = styled.div`
   gap: 1px;
 `;
 
-const Menu = styled.div`
-  height: 150vh;
-  width: 100%;
-  background-color: tomato;
-`;
-
 const Content = styled.div`
   display: flex;
   background-color: ${({ theme }) => theme.mainBgColor};
@@ -160,9 +154,9 @@ export function CommonLayout() {
         <ContentGrid>
           <Row>
             <Items>
-              <Logo src="https://user-images.githubusercontent.com/80146176/151408338-468d2544-baf5-4b10-b987-a8e9c1856bd5.png"></Logo>
+              <Logo src="https://user-images.githubusercontent.com/80146176/151408338-468d2544-baf5-4b10-b987-a8e9c1856bd5.png" />
             </Items>
-            <Items></Items>
+            <Items />
           </Row>
           <Row>
             <Tab title="기본 설정" />
@@ -187,7 +181,7 @@ export function CommonLayout() {
               <Tab title="혜택" />
               <Tab title="고객 센터 관리" />
               <Tab title="알림" />
-              <Items></Items>
+              <Items />
             </BigItems>
             <Content>
               <Admin />
