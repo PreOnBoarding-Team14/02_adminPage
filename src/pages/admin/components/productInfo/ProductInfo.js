@@ -35,7 +35,7 @@ const Cols = styled.div`
   background-color: ${({ theme }) => theme.borderGrayColor};
   display: grid;
   width: 100%;
-  grid-template-rows: 415px 95px 95px 95px 95px 230px 90px; // 4.35fr 1fr 1fr 1fr 1fr 2.4fr 1fr; //415px 95px 95px 95px 95px 230px 90px; //4.35fr 1fr 1fr 1fr 1fr 2.4fr 1fr; //415px 95px 95px 95px 95px 230px 90px;
+  grid-template-rows: 415px 415px 95px 95px 95px 230px 90px; // 4.35fr 1fr 1fr 1fr 1fr 2.4fr 1fr; //415px 95px 95px 95px 95px 230px 90px; //4.35fr 1fr 1fr 1fr 1fr 2.4fr 1fr; //415px 95px 95px 95px 95px 230px 90px;
   height: 100%;
   gap: 1px;
 `;
@@ -93,14 +93,31 @@ const CancelBtn = styled.span`
   cursor: pointer;
 `;
 
+const Placeholder = styled.span`
+  color: #757575;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+`;
+
 const InputBox = styled.div`
   background-color: ${({ theme }) => theme.mainBgColor};
-  display: grid;
-  grid-template-columns: 8fr 1fr;
+  display: flex;
   width: 100%;
-  height: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  padding-right: 10px;
   border: 2.5px solid ${({ theme }) => theme.borderGrayColor};
   border-radius: ${({ theme }) => theme.bigRadius};
+`;
+
+const SelectTagBox = styled(InputBox)`
+  height: 300px;
+  word-spacing: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow-y: auto;
 `;
 
 const Col = styled.div`
@@ -122,6 +139,7 @@ const ColTitle = styled.span`
 const Category = styled.span``;
 
 const SearchBtn = styled.div`
+  padding: 10px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,11 +153,15 @@ const SecondRow = styled.div`
   background-color: ${({ theme }) => theme.mainBgColor};
   height: 100%;
   font-size: ${({ theme }) => theme.bigFontSize};
-  align-items: center;
   display: flex;
+  align-items: center;
 `;
 
-const FilterSearch = styled(SecondRow)`
+const FilterSearch = styled.div`
+  align-items: center;
+  background-color: ${({ theme }) => theme.mainBgColor};
+  height: 100%;
+  font-size: ${({ theme }) => theme.bigFontSize};
   display: flex;
   flex-direction: column;
 `;
@@ -220,9 +242,7 @@ const FilterDiv = styled.div`
   position: absolute;
   width: 60vw;
   height: 600px;
-  margin: auto 0;
-  top: 0;
-  bottom: 0;
+  margin: auto;
   background-color: ${({ theme }) => theme.mainBgColor};
   border: 3px solid ${({ theme }) => theme.borderGrayColor};
   border-radius: ${({ theme }) => theme.bigRadius};
@@ -239,6 +259,23 @@ const FilterTagBox = styled.div`
   background-color: ${({ theme }) => theme.mainBgColor};
   border: 3px solid ${({ theme }) => theme.borderGrayColor};
   border-radius: ${({ theme }) => theme.bigRadius};
+`;
+
+const ViewTagWrapper = styled.div`
+  display: flex;
+  overflow-y: auto;
+  flex-wrap: wrap;
+`;
+
+const ViewTagBox = styled.div`
+  margin: 5px 10px;
+  max-height: 50px;
+  padding: 15px;
+  display: flex;
+  background-color: ${({ theme }) => theme.tagGreen};
+  border-radius: ${({ theme }) => theme.miniRadius};
+  cursor: pointer;
+  align-items: center;
 `;
 
 const TagBox = styled.div`
@@ -261,12 +298,12 @@ const TagSpan = styled.span`
 `;
 
 const OverScreen = styled.div`
-  background-color: rgba(0, 0, 0, 0);
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  overflow: hidden;
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
 `;
 
 const DATA = [
@@ -396,28 +433,47 @@ const TAG = [
   '재능',
   '지불하다',
 ];
+const PATTERN = /[\u3131-\u314e|\u314f-\u3163|\uac00-\ud7a3]/g;
 
 export default function ProductInfo() {
-<<<<<<< HEAD
   const [product, setProduct] = useState(DATA);
   const [isCheck, setIsCheck] = useState(0);
   const [focus, setFocus] = useState(false);
-  const [noQuery, setNoQuery] = useState(false);
+  const [tag, setTag] = useState([]);
   const [query, setQuery] = useState('');
   const focusClick = () => {
     setFocus((prev) => !prev);
   };
 
-  const onSearch = useCallback((e) => {
-    setNoQuery(false);
-    setQuery(e.target.value);
-    const result = TAG.filter((word) => {
-      return word.includes(query[0]) || word.includes(query[1]);
+  const onTagClick = (e) => {
+    //console.log(e.target.innerText);
+    setTag((oldTag) => {
+      const findIndex = oldTag.findIndex(
+        (item) => item.value === e.target.innerText
+      );
+      if (findIndex !== -1) return oldTag;
+      else {
+        return [...oldTag, { id: Date.now(), value: e.target.innerText }];
+      }
     });
-    console.log(result);
-    if (result.legnth === 0 && query.length > 0) {
-      setNoQuery(true);
-    }
+    setFocus(false);
+  };
+  const onDeleteTag = (id) => {
+    setTag((oldTag) => {
+      const findIndex = oldTag.findIndex((item) => item.id === id);
+      //console.log(id);
+      //console.log(findIndex);
+      return [...oldTag.slice(0, findIndex), ...oldTag.slice(findIndex + 1)];
+    });
+  };
+
+  // console.log(tag);
+  const onSearch = useCallback((e) => {
+    setQuery(e.target.value);
+    //console.log(TAG.includes(query[0]));
+    //console.log(query.length);
+    //console.log(PATTERN.test(query));
+    // console.log(pattern.test(query));
   });
   const onDelete = (value) => {
     setProduct((oldProduct) => {
@@ -524,13 +580,20 @@ export default function ProductInfo() {
           </BoxsGrid>
           <FilterSearch style={{ padding: '20px 10px' }}>
             <InputBox onClick={focusClick}>
-              <FormInput
-                attr={{
-                  placeholder: '필터 태그를 검색해 주세요.',
-                }}
-              />
+              <ViewTagWrapper>
+                <Placeholder>필터 태그를 검색해 주세요.</Placeholder>
+              </ViewTagWrapper>
               <SearchBtn>검색</SearchBtn>
             </InputBox>
+            <SelectTagBox>
+              {tag.length > 0 &&
+                tag.map((item) => (
+                  <ViewTagBox key={item.id}>
+                    <TagSpan>{item.value}</TagSpan>
+                    <TagSpan onClick={() => onDeleteTag(item.id)}>X</TagSpan>
+                  </ViewTagBox>
+                ))}
+            </SelectTagBox>
           </FilterSearch>
           {focus && (
             <FilterDiv>
@@ -546,77 +609,111 @@ export default function ProductInfo() {
                 </InputBox>
               </FilterSearch>
               <FilterTagBox>
-                {TAG.sort().map((item) => {
-                  const result0 = TAG.filter((word) => word === query[0]);
-                  const result1 = TAG.filter((word) =>
-                    word.includes(query[(0, 1)])
-                  );
-                  const result2 = TAG.filter((word) =>
-                    word.includes(query[(0, 2)])
-                  );
-                  const result3 = TAG.filter((word) =>
-                    word.includes(query[(0, 3)])
-                  );
-                  const result4 = TAG.filter((word) =>
-                    word.includes(query[(0, 4)])
-                  );
-                  if (query.length === 0) {
-                    return (
-                      <TagBox>
-                        <TagSpan>{item}</TagSpan>
-                      </TagBox>
-                    );
-                  } else if (result0) {
-                    return (
-                      <TagBox>
-                        <TagSpan>{item}</TagSpan>
-                      </TagBox>
-                    );
-                  } else if (result1) {
-                    return (
-                      item.includes(query[0]) &&
-                      item.includes(query[1]) && (
-                        <TagBox>
+                {(PATTERN.test(query) === false) | (query.length > 5) &&
+                query.length !== 0 ? (
+                  <p>검색 결과 없음</p>
+                ) : (
+                  TAG.sort().map((item) => {
+                    const match = item === query;
+                    if (query.length === 0) {
+                      return (
+                        <TagBox onClick={onTagClick}>
                           <TagSpan>{item}</TagSpan>
                         </TagBox>
-                      )
-                    );
-                  } else if (result2) {
-                    return (
-                      item.includes(query[0]) &&
-                      item.includes(query[1]) &&
-                      item.includes(query[2]) && (
-                        <TagBox>
-                          <TagSpan>{item}</TagSpan>
-                        </TagBox>
-                      )
-                    );
-                  } else if (result3) {
-                    return (
-                      item.includes(query[0]) &&
-                      item.includes(query[1]) &&
-                      item.includes(query[2]) &&
-                      item.includes(query[3]) && (
-                        <TagBox>
-                          <TagSpan>{item}</TagSpan>
-                        </TagBox>
-                      )
-                    );
-                  } else if (result4) {
-                    return (
-                      item.includes(query[0]) &&
-                      item.includes(query[1]) &&
-                      item.includes(query[2]) &&
-                      item.includes(query[3]) &&
-                      item.includes(query[4]) && (
-                        <TagBox>
-                          <TagSpan>{item}</TagSpan>
-                        </TagBox>
-                      )
-                    );
-                  }
-                })}
-                {noQuery && <TagBox>검색 결과 없음</TagBox>};
+                      );
+                    } else if (query.length === 1) {
+                      if (match) {
+                        return (
+                          <TagBox>
+                            <TagSpan>{item}</TagSpan>
+                          </TagBox>
+                        );
+                      } else {
+                        return (
+                          item.includes(query[0]) && (
+                            <TagBox>
+                              <TagSpan>{item}</TagSpan>
+                            </TagBox>
+                          )
+                        );
+                      }
+                    } else if (query.length === 2) {
+                      if (match) {
+                        return (
+                          <TagBox>
+                            <TagSpan>{item}</TagSpan>
+                          </TagBox>
+                        );
+                      } else {
+                        return (
+                          item.includes(query[0]) &&
+                          item.includes(query[1]) && (
+                            <TagBox>
+                              <TagSpan>{item}</TagSpan>
+                            </TagBox>
+                          )
+                        );
+                      }
+                    } else if (query.length === 3) {
+                      if (match) {
+                        return (
+                          <TagBox>
+                            <TagSpan>{item}</TagSpan>
+                          </TagBox>
+                        );
+                      } else {
+                        return (
+                          item.includes(query[0]) &&
+                          item.includes(query[1]) &&
+                          item.includes(query[2]) && (
+                            <TagBox>
+                              <TagSpan>{item}</TagSpan>
+                            </TagBox>
+                          )
+                        );
+                      }
+                    } else if (query.length === 4) {
+                      if (match) {
+                        return (
+                          <TagBox>
+                            <TagSpan>{item}</TagSpan>
+                          </TagBox>
+                        );
+                      } else {
+                        return (
+                          item.includes(query[0]) &&
+                          item.includes(query[1]) &&
+                          item.includes(query[2]) &&
+                          item.includes(query[3]) && (
+                            <TagBox>
+                              <TagSpan>{item}</TagSpan>
+                            </TagBox>
+                          )
+                        );
+                      }
+                    } else if (query.length === 5) {
+                      if (match) {
+                        return (
+                          <TagBox>
+                            <TagSpan>{item}</TagSpan>
+                          </TagBox>
+                        );
+                      } else {
+                        return (
+                          item.includes(query[0]) &&
+                          item.includes(query[1]) &&
+                          item.includes(query[2]) &&
+                          item.includes(query[3]) &&
+                          item.includes(query[4]) && (
+                            <TagBox>
+                              <TagSpan>{item}</TagSpan>
+                            </TagBox>
+                          )
+                        );
+                      }
+                    }
+                  })
+                )}
               </FilterTagBox>
             </FilterDiv>
           )}
@@ -658,7 +755,4 @@ export default function ProductInfo() {
       </Grid>
     </Container>
   );
-=======
-  return null;
->>>>>>> d28f4d45ecb4944360ed6f3a8c6204fa8ab11e3a
 }
