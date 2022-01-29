@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FormCheckBox, FormInput } from 'components';
 import InputBar from './InputBar';
 import { useCallback, useState } from 'react';
-import { Tag } from 'antd';
+import AddImage from './AddImage';
 
 const Container = styled.div`
   width: 100%;
@@ -177,6 +177,15 @@ const SecondGridRow = styled.div`
   background-color: ${({ theme }) => theme.mainBgColor};
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+`;
+
+const ImageLayout = styled.div`
+  background-color: ${({ theme }) => theme.mainBgColor};
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  padding: 20px;
 `;
 
 const CodeGrid = styled.div`
@@ -724,32 +733,12 @@ export default function ProductInfo() {
             <Text>상품 코드</Text>
           </CodeGrid>
           <InputBar placeholder="상품 구성 소개 정보를 입력해 주세요." />
-          <SecondGridRow>
-            <ImageButton>+ 이미지 첨부</ImageButton>
-            <SecondRow>
-              <CancelXButton>이미지 파일명.jpg</CancelXButton>
-              <CancleCircleButton>X</CancleCircleButton>
-            </SecondRow>
-            <SecondRow />
-          </SecondGridRow>
-          <SecondGridRow>
-            <SecondeGridCol>
-              <ImageButton>+ 이미지 첨부</ImageButton>
-              <SecondRow />
-              <SecondRow />
-            </SecondeGridCol>
-            <FlexCol>
-              <Normal>
-                <CancelXButton>이미지 파일명.jpg</CancelXButton>
-                <CancleCircleButton>X</CancleCircleButton>
-              </Normal>
-              <Normal>
-                <CancelXButton>이미지 파일명.jpg</CancelXButton>
-                <CancleCircleButton>X</CancleCircleButton>
-              </Normal>
-            </FlexCol>
-            <SecondRow />
-          </SecondGridRow>
+          <ImageLayout>
+            <AddImage />
+          </ImageLayout>
+          <ImageLayout>
+            <AddImage />
+          </ImageLayout>
           <SecondRow style={{ paddingLeft: '20px' }}>5개</SecondRow>
         </Cols>
       </Grid>
