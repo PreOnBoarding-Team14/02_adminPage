@@ -24,15 +24,23 @@ const Text = styled.div`
 `;
 
 export default function FormCheckBox({ attrs }) {
-  const { name, data } = attrs;
+  const { name, data, onChange } = attrs;
+  //console.log(isCheck[0]);
+  //console.log(data);
 
   return (
     <form>
       {data.map((item, idx) => (
         <Label key={idx}>
           <CheckAndText>
-            <CheckBox type="checkbox" value={item} name={name} />
-            <Text>{item}</Text>
+            <CheckBox
+              onChange={onChange}
+              type="checkbox"
+              value={item.value}
+              name={name}
+              checked={item.checked}
+            />
+            <Text>{item.value}</Text>
           </CheckAndText>
         </Label>
       ))}
