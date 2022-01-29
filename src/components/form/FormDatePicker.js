@@ -1,29 +1,28 @@
 import { DatePicker } from 'antd';
 
 export default function FormDatePicker({ attr }) {
-  /*
-		attr 에는 필요한 속성들 넣기
-		ex) initialValue, onClick, onFocus, label, title etc..
-
-		Date type : 날짜와 시간 둘 다 표기하는 경우, 날짜만 표기하는 경우
-	*/
+  const { title, disabled, type, isRange, onChange } = attr;
   const getShowTimeOption = (type) => (type === 'date' ? false : true);
+  const getFormat = (type) =>
+    type === 'time' ? 'YYYY-MM-DD hh:mm' : 'YYYY-MM-DD';
 
   return (
     <>
-      <label>{attr.title}</label>
+      <label>{title}</label>
       <DatePicker
-        disabled={attr.disabled}
-        onChange={attr.onChange()}
-        showTime={getShowTimeOption(attr.type)}
+        disabled={disabled}
+        onChange={onChange}
+        showTime={getShowTimeOption(type)}
+        format={getFormat(type)}
       />
-      {attr.isRange ? (
+      {isRange ? (
         <>
           ~
           <DatePicker
-            disabled={attr.disabled}
-            onChange={attr.onChange()}
+            disabled={disabled}
+            onChange={onChange}
             showTime={getShowTimeOption(attr.type)}
+            format={getFormat(attr.type)}
           />
         </>
       ) : null}

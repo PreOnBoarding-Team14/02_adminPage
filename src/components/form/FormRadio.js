@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const Container = styled.div`
+  margin: 20px 0px 0px 10px;
+`;
+
 const Radio = styled.input.attrs({ type: 'radio' })`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
@@ -9,21 +13,22 @@ export default function FormRadio({ attr, radio }) {
   const { width, height, onClick } = attr;
   return (
     <>
-      {radio.map((radio, index) => (
-        <div key={index}>
+      {radio.map((e, index) => (
+        <Container key={index}>
           <Radio
-            id={radio.name}
-            value={radio.value}
-            checked={radio.checked}
+            id={e.id}
+            name={e.name}
+            value={e.value}
+            defaultChecked={e.defaultChecked}
             onClick={onClick}
             width={width}
             height={height}
             readOnly
           />
-          <label htmlFor={radio.name} onClick={onClick}>
-            {radio.text}
+          <label htmlFor={e.id} onClick={onClick}>
+            {e.text}
           </label>
-        </div>
+        </Container>
       ))}
     </>
   );

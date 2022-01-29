@@ -66,7 +66,9 @@ const ImageDeleteButton = styled.button`
   cursor: pointer;
 `;
 
-export default function FormAddImg({ AddImgType, imgNames, setImgNames }) {
+export default function FormAddImg({ AddImgType }) {
+  const [imgNames, setImgNames] = useState([]);
+
   const handleChangeFile = (event) => {
     for (let i = 0; i < event.target.files.length; i++) {
       if (imgNames.includes(event.target.files[i].name)) {
