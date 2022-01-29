@@ -2,6 +2,23 @@ import React, { useState, memo } from 'react';
 import { FormSelect } from 'components';
 import { MoreOption } from '.';
 import ProductOptionStyled from '../components/productOption/ProductOptionStyled';
+import styled from 'styled-components';
+
+const DeleteBtnWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const Text = styled.span`
+  margin: 0px 10px;
+`;
+
+const PlusOptionButton = styled.button`
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid gray;
+  background: white;
+`;
 
 const { DeleteBtn, OptionSetItem, OptionName, PriceInputWrapper, PriceInput } =
   ProductOptionStyled;
@@ -82,7 +99,9 @@ function OptionItem({ optionItemId, onDelete }) {
 
   return (
     <OptionSetItem>
-      <DeleteBtn onClick={() => onDelete('deleteOptionItem')}>삭제</DeleteBtn>
+      <DeleteBtnWrapper>
+        <DeleteBtn onClick={() => onDelete('deleteOptionItem')}>삭제</DeleteBtn>
+      </DeleteBtnWrapper>
       <OptionName
         type="text"
         name="optionName"
@@ -96,7 +115,7 @@ function OptionItem({ optionItemId, onDelete }) {
           placeholder="상품 정상가 (필수)"
           onChange={(e) => onEvent(e, 'changeOption')}
         />
-        <span>원</span>
+        <Text>원</Text>
         <label>{getDiscountRate}</label>
         <PriceInput
           type="text"
@@ -104,9 +123,9 @@ function OptionItem({ optionItemId, onDelete }) {
           placeholder="상품 판매가 (필수)"
           onChange={(e) => onEvent(e, 'changeOption')}
         />
-        <span>원</span>
+        <Text>원</Text>
         <PriceInput type="text" name="stock" placeholder="재고 (필수)" />
-        <span>개</span>
+        <Text>개</Text>
         <FormSelect attr={selectAttr} option={selectOptionList} />
       </PriceInputWrapper>
       <div>
@@ -118,9 +137,9 @@ function OptionItem({ optionItemId, onDelete }) {
           />
         ))}
       </div>
-      <button onClick={(e) => onEvent(e, 'addMoreOption')}>
+      <PlusOptionButton onClick={(e) => onEvent(e, 'addMoreOption')}>
         + 추가 옵션 상품 등록
-      </button>
+      </PlusOptionButton>
     </OptionSetItem>
   );
 }
