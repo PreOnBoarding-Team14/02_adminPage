@@ -1,5 +1,6 @@
 import { FormInput } from 'components';
 import { useState } from 'react';
+import { Util } from 'utils';
 import ProductInfoNoticeStyled from './ProductInfoNoticeStyled';
 
 const {
@@ -31,10 +32,10 @@ export default function ProductInfoNotice() {
   // 정보고시 삭제 버튼 클릭 이벤트
   const deleteNotice = () => {
     if (sequence === 1) {
-      alert('삭제할 수 없습니다.');
+      Util.getAlertMsg('alert', '삭제할 수 없습니다.');
     } else {
       setSequence((curr) => curr - 1);
-      alert('삭제되었습니다');
+      Util.getAlertMsg('alert', '삭제되었습니다');
     }
   };
 
@@ -47,7 +48,7 @@ export default function ProductInfoNotice() {
   // 정보 고시 추가 버튼 클릭 이벤트
   const addNotice = () => {
     setSequence((curr) => curr + 1);
-    alert('정보고시가 추가되었습니다.');
+    Util.getAlertMsg('alert', '정보고시가 추가되었습니다.');
   };
 
   return (
