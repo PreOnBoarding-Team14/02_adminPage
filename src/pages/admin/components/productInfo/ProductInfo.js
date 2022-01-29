@@ -13,6 +13,7 @@ const Container = styled.div`
   border: 1.5px solid ${({ theme }) => theme.borderGrayColor};
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 `;
 
 const Title = styled.span`
