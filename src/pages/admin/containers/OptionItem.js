@@ -1,6 +1,10 @@
 import React, { useState, memo } from 'react';
 import { FormSelect } from 'components';
 import { MoreOption } from '.';
+import ProductOptionStyled from '../components/productOption/ProductOptionStyled';
+
+const { DeleteBtn, OptionSetItem, OptionName, PriceInputWrapper, PriceInput } =
+  ProductOptionStyled;
 
 const selectAttr = [
   {
@@ -77,16 +81,16 @@ function OptionItem({ optionItemId, onDelete }) {
   };
 
   return (
-    <>
-      <button onClick={() => onDelete('deleteOptionItem')}>삭제</button>
-      <input
+    <OptionSetItem>
+      <DeleteBtn onClick={() => onDelete('deleteOptionItem')}>삭제</DeleteBtn>
+      <OptionName
         type="text"
         name="optionName"
         placeholder="옵션명을 입력해 주세요. (필수)"
         onChange={(e) => onEvent(e, 'changeOption')}
       />
-      <div>
-        <input
+      <PriceInputWrapper>
+        <PriceInput
           type="text"
           name="normalPrice"
           placeholder="상품 정상가 (필수)"
@@ -94,17 +98,17 @@ function OptionItem({ optionItemId, onDelete }) {
         />
         <span>원</span>
         <label>{getDiscountRate}</label>
-        <input
+        <PriceInput
           type="text"
           name="salesPrice"
           placeholder="상품 판매가 (필수)"
           onChange={(e) => onEvent(e, 'changeOption')}
         />
         <span>원</span>
-        <input type="text" name="stock" placeholder="재고 (필수)" />
+        <PriceInput type="text" name="stock" placeholder="재고 (필수)" />
         <span>개</span>
         <FormSelect attr={selectAttr} option={selectOptionList} />
-      </div>
+      </PriceInputWrapper>
       <div>
         {moreOptionArr.map((item) => (
           <MoreOption
@@ -117,7 +121,7 @@ function OptionItem({ optionItemId, onDelete }) {
       <button onClick={(e) => onEvent(e, 'addMoreOption')}>
         + 추가 옵션 상품 등록
       </button>
-    </>
+    </OptionSetItem>
   );
 }
 

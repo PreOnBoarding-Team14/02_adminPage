@@ -58,41 +58,56 @@ const OptionSetWrapper = styled.div`
   background-color: ${({ theme }) => theme.veryLightGrayColor};
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 `;
 
 const OptionSetAddBtn = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid ${({ theme }) => theme.pointColor};
+  position: relative;
   font-size: '14px';
   font-weight: 500;
   padding: 15px;
-  cursor: pointer;
+  justify-content: center;
+  align-items: center;
   border-radius: ${({ theme }) => theme.bigRadius};
-  position: relative;
+  border: 2px solid ${({ theme }) => theme.pointColor};
+  cursor: pointer;
 `;
 
-const DeleteBtn = styled.div`
-  border-radius: ${({ theme }) => theme.bigRadius};
-  border: 1px solid ${({ theme }) => theme.lightGrayColor};
+const DeleteBtn = styled.button`
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: '14px';
+  font-weight: 500;
+  border: 1px solid '#B3B3B3';
   border-radius: 5px;
-  width: 80px;
-  height: 30px;
-  float: right;
+  background-color: ${({ theme }) => theme.veryLightGrayColor};
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 const OptionSetItem = styled.div`
-  /* display: flex; */
+  /* display: inline-flex; */
+  flex-direction: column;
+  justify-content: center;
 `;
 
-const ImageWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  border-radius: ${({ theme }) => theme.bigRadius};
-  border: 1px solid ${({ theme }) => theme.borderGrayColor};
+const OptionName = styled.input`
+  width: 60%;
+  height: 40px;
 `;
+
+const PriceInputWrapper = styled.div`
+  display: inline-flex;
+  justify-content: center;
+  margin: 5px;
+  padding: 10px;
+`;
+
+const PriceInput = styled.input``;
 
 const ProductOptionStyled = {
   Container,
@@ -104,7 +119,9 @@ const ProductOptionStyled = {
   OptionSetAddBtn,
   DeleteBtn,
   RequiredStar,
-  ImageWrapper,
+  OptionName,
+  PriceInputWrapper,
+  PriceInput,
 };
 
 export default ProductOptionStyled;
