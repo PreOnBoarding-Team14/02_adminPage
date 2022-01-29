@@ -94,7 +94,7 @@ export default function FormAddImg({ AddImgType, InputId }) {
       <TopText>{AddImgType}</TopText>
       <BottomContent>
         <AddImageButtonWrapper>
-          <AddImageButton for={InputId}>+ 이미지 추가</AddImageButton>
+          <AddImageButton htmlFor={InputId}>+ 이미지 추가</AddImageButton>
           <AddImageButtonInput
             type="file"
             accept="image/*"
