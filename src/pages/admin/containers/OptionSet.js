@@ -3,15 +3,24 @@ import { FormImagePreview } from '../../../components';
 import { OptionItem } from '.';
 import ProductOptionStyled from '../components/productOption/ProductOptionStyled';
 import moment from 'moment';
+import styled from 'styled-components';
+
+const DeleteBtnWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 
 const { OptionSetAddBtn, DeleteBtn } = ProductOptionStyled;
 
 function OptionSet({ optionSetId, onDelete, onAdd, optionItemArr }) {
   return (
     <>
-      <DeleteBtn onClick={() => onDelete('deleteOptionSet', optionSetId)}>
-        삭제
-      </DeleteBtn>
+      <DeleteBtnWrapper>
+        <DeleteBtn onClick={() => onDelete('deleteOptionSet', optionSetId)}>
+          삭제
+        </DeleteBtn>
+      </DeleteBtnWrapper>
+
       <FormImagePreview />
       {optionItemArr.map((item) => (
         <OptionItem

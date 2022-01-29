@@ -20,7 +20,7 @@ export default function Tab({ title }) {
     <Items>
       <Item>{title}</Item>
       <Item>
-        <i className="fas fa-chevron-down"></i>
+        <i className="fas fa-chevron-down" />
       </Item>
     </Items>
   );

@@ -66,6 +66,7 @@ const OptionSetAddBtn = styled.div`
   position: relative;
   font-size: '14px';
   font-weight: 500;
+  margin-top: 20px;
   padding: 15px;
   justify-content: center;
   align-items: center;
@@ -75,15 +76,13 @@ const OptionSetAddBtn = styled.div`
 `;
 
 const DeleteBtn = styled.button`
-  display: flex;
-  position: relative;
-  width: 100%;
-  justify-content: flex-end;
+  width: 60px;
   font-size: '14px';
   font-weight: 500;
   border: 1px solid '#B3B3B3';
   border-radius: 5px;
   background-color: ${({ theme }) => theme.veryLightGrayColor};
+  border: 1px solid gray;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -91,29 +90,34 @@ const DeleteBtn = styled.button`
 
 const OptionSetItem = styled.div`
   /* display: inline-flex; */
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid gray;
   flex-direction: column;
   justify-content: center;
 `;
 
 const OptionName = styled.input`
-  width: 60%;
+  border: 1px solid gray;
+  width: 100%;
   height: 40px;
 `;
 
 const PriceInputWrapper = styled.div`
-  display: inline-flex;
-  justify-content: center;
-  margin: 5px;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
 `;
 
-const PriceInput = styled.input``;
+const PriceInput = styled.input`
+  border: 1px solid gray;
+`;
 
 const ProductOptionStyled = {
+  OptionSetWrapper,
   Container,
   Text,
   TitleBar,
-  OptionSetWrapper,
   NullOption,
   OptionSetItem,
   OptionSetAddBtn,

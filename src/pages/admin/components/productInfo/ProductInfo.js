@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { FormCheckBox, FormInput } from 'components';
+import { FormAddImg, FormAddOneImg, FormCheckBox, FormInput } from 'components';
 import InputBar from './InputBar';
 import { useCallback, useState } from 'react';
-import FormImagePreview from 'components/form/FormImagePreview';
 
 const Container = styled.div`
   width: 100%;
@@ -35,7 +34,7 @@ const Cols = styled.div`
   background-color: ${({ theme }) => theme.borderGrayColor};
   display: grid;
   width: 100%;
-  grid-template-rows: 415px 415px 95px 95px 95px 230px 90px; // 4.35fr 1fr 1fr 1fr 1fr 2.4fr 1fr; //415px 95px 95px 95px 95px 230px 90px; //4.35fr 1fr 1fr 1fr 1fr 2.4fr 1fr; //415px 95px 95px 95px 95px 230px 90px;
+  grid-template-rows: 415px 415px 95px 95px 130px 230px 90px; // 4.35fr 1fr 1fr 1fr 1fr 2.4fr 1fr; //415px 95px 95px 95px 95px 230px 90px; //4.35fr 1fr 1fr 1fr 1fr 2.4fr 1fr; //415px 95px 95px 95px 95px 230px 90px;
   height: 100%;
   gap: 1px;
 `;
@@ -166,19 +165,6 @@ const FilterSearch = styled.div`
   flex-direction: column;
 `;
 
-const SecondeGridCol = styled.div`
-  padding: 20px 0px;
-  display: grid;
-  background-color: ${({ theme }) => theme.mainBgColor};
-  grid-template-rows: repeat(3, 1fr);
-  font-size: ${({ theme }) => theme.bigFontSize};
-`;
-const SecondGridRow = styled.div`
-  background-color: ${({ theme }) => theme.mainBgColor};
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-`;
-
 const ImageLayout = styled.div`
   background-color: ${({ theme }) => theme.mainBgColor};
   height: 100%;
@@ -194,47 +180,6 @@ const CodeGrid = styled.div`
   grid-template-columns: 3fr 1fr 2fr;
   height: 100%;
   gap: 1px;
-`;
-
-const ImageButton = styled.div`
-  font-size: ${({ theme }) => theme.bigFontSize};
-  border-radius: ${({ theme }) => theme.bigRadius};
-  border: 2.5px solid ${({ theme }) => theme.pointColor};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  margin: auto 20px;
-  cursor: pointer;
-`;
-
-const CancelXButton = styled.div`
-  font-size: ${({ theme }) => theme.bigFontSize};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const CancleCircleButton = styled.div`
-  font-size: ${({ theme }) => theme.bigFontSize};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  margin-left: 10px;
-  cursor: pointer;
-  border: 2.5px solid ${({ theme }) => theme.borderGrayColor};
-`;
-
-const FlexCol = styled.div`
-  font-size: ${({ theme }) => theme.bigFontSize};
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-top: 20px;
 `;
 
 const Normal = styled.div`
@@ -456,6 +401,7 @@ export default function ProductInfo() {
 
   const onTagClick = (e) => {
     //console.log(e.target.innerText);
+    console.log(e.target.innerText);
     setTag((oldTag) => {
       const findIndex = oldTag.findIndex(
         (item) => item.value === e.target.innerText
@@ -483,7 +429,7 @@ export default function ProductInfo() {
     //console.log(query.length);
     //console.log(PATTERN.test(query));
     // console.log(pattern.test(query));
-  });
+  }, []);
   const onDelete = (value) => {
     setProduct((oldProduct) => {
       const findIndex = oldProduct.findIndex((item) => item.value === value);
@@ -521,7 +467,7 @@ export default function ProductInfo() {
         return newProduct;
       }
     });
-  });
+  }, []);
 
   return (
     <Container>
@@ -631,33 +577,43 @@ export default function ProductInfo() {
                         </TagBox>
                       );
                     } else if (query.length === 1) {
-                      if (match) {
+                      if (item.includes(query[0])) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
                         );
-                      } else {
+                      } else if (match) {
                         return (
-                          item.includes(query[0]) && (
-                            <TagBox>
-                              <TagSpan>{item}</TagSpan>
-                            </TagBox>
-                          )
+                          <TagBox onClick={onTagClick}>
+                            <TagSpan>{item}</TagSpan>
+                          </TagBox>
                         );
                       }
                     } else if (query.length === 2) {
                       if (match) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
+                        );
+                      } else if (
+                        item.includes(query[0]) ||
+                        item.includes(query[1])
+                      ) {
+                        return (
+                          item.includes(query[0]) ||
+                          (item.includes(query[1]) && (
+                            <TagBox onClick={onTagClick}>
+                              <TagSpan>{item}</TagSpan>
+                            </TagBox>
+                          ))
                         );
                       } else {
                         return (
                           item.includes(query[0]) &&
                           item.includes(query[1]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -666,16 +622,30 @@ export default function ProductInfo() {
                     } else if (query.length === 3) {
                       if (match) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
+                        );
+                      } else if (
+                        item.includes(query[0]) ||
+                        item.includes(query[1]) ||
+                        item.includes(query[2])
+                      ) {
+                        return (
+                          item.includes(query[0]) ||
+                          item.includes(query[1]) ||
+                          item.includes(query[2]) || (
+                            <TagBox onClick={onTagClick}>
+                              <TagSpan>{item}</TagSpan>
+                            </TagBox>
+                          )
                         );
                       } else {
                         return (
                           item.includes(query[0]) &&
                           item.includes(query[1]) &&
                           item.includes(query[2]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -684,7 +654,7 @@ export default function ProductInfo() {
                     } else if (query.length === 4) {
                       if (match) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
                         );
@@ -694,7 +664,7 @@ export default function ProductInfo() {
                           item.includes(query[1]) &&
                           item.includes(query[2]) &&
                           item.includes(query[3]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -703,7 +673,7 @@ export default function ProductInfo() {
                     } else if (query.length === 5) {
                       if (match) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
                         );
@@ -714,7 +684,7 @@ export default function ProductInfo() {
                           item.includes(query[2]) &&
                           item.includes(query[3]) &&
                           item.includes(query[4]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -726,16 +696,18 @@ export default function ProductInfo() {
               </FilterTagBox>
             </FilterDiv>
           )}
-          {focus && <OverScreen onClick={focusClick}></OverScreen>}
+          {focus && <OverScreen onClick={focusClick} />}
           <CodeGrid>
             <InputBar placeholder="상품명을 입력해 주세요." />
             <GrayText>상품 코드</GrayText>
-            <Text>상품 코드</Text>
+            <Text>1643435697397</Text>
           </CodeGrid>
           <InputBar placeholder="상품 구성 소개 정보를 입력해 주세요." />
-          <ImageLayout>{/* <AddImage /> */}</ImageLayout>
           <ImageLayout>
-            <FormImagePreview />
+            <FormAddOneImg InputId="single" />
+          </ImageLayout>
+          <ImageLayout>
+            <FormAddImg InputId="mutiii" />
           </ImageLayout>
           <SecondRow style={{ paddingLeft: '20px' }}>5개</SecondRow>
         </Cols>
