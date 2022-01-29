@@ -24,28 +24,6 @@ export default function FormTextArea({ attrs }) {
       name={name}
       onChange={onChange}
       placeholder={placeholder}
-    ></TextArea>
+    />
   );
 }
-
-// export default function FormTextArea({ attrs }) {
-//   const { height = '200px', data } = attrs;
-//   return (
-//     <TextArea
-//       style={{
-//         height: attrs.height,
-//         borderRadius: attrs.borderRadius,
-//         justifyContent: data ? 'flex-start' : 'center',
-//         alignItems: data ? 'flex-start' : 'center',
-//       }}
-//     >
-//       {data?.map((item) => (
-//         <FilterBox>
-//           <FilterWord>{item}</FilterWord>
-//           <CancleBtn>X</CancleBtn>
-//         </FilterBox>
-//       ))}
-//       {!data && <NoSearch>검색 결과가 존재하지 않습니다.</NoSearch>}
-//     </TextArea>
-//   );
-// }
