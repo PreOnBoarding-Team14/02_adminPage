@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+## 기능
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 노출 기한 설정
 
-## Available Scripts
+    DEFAULT로 제한없음을 선택 
+    달력을 통해 날짜,시간을 선택할수 있음
 
-In the project directory, you can run:
+### 카테고리 지정
 
-### `npm start`
+    체크박스를 통해 해당 상품에 카테고리를 지정할 수 있어야하며 체크박스 지정해제 또는 선택된 카테고리의 X 버튼을 통해지정을 해제할 수 있음
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 필터 태그 지정
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    필터태그 검색창 포커스시 필터태그에 등록되어 있는 모든 태그가 제공됨.
+    필터태그 검색시 데이터 텍스트 일치값 순으로 검색결과 제공하며 검색결과가 없는 경우에는 '검색 결과 없음' 으로 보여줌
+    검색한 필터태그 TAP 시,해당 필터태그 지정되며 이미 지정되어 있는 태그를 선택시 중복으로 추가되지 않고 기존의 태그를 유지
+    지정된 태그는 검색창 아래에 표시되며 태그의 X 버튼을 통해서 지정 해제할 수 있음
 
-### `npm test`
+### 상품명,상품구성 입력
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+     상품의 상품명,구성을 설명하는 텍스트를 입력하는 영역
 
-### `npm run build`
+### 상품 썸네일 , 상품 대표 이미지 업로드
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    이미지를 업로드 할 수 있는 버튼(썸네일의 경우 최대 1개까지 업로드 가능)
+    이미지 첨부 버튼 TAP 후 이미지 업로드 시, 우측에 업로드한 이미지 파일명이 [X]버튼과 함께 노출 이미 이미지가 업로드된 상태에서 추가 첨부 시, 최신업로드 순으로 이미지 파일이 추가됨
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 상품 옵션 등록
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 이미지 추가 컴포넌트
 
-### `npm run eject`
+이미지 첨부 컴포넌트를 공용컴포넌트화 하여, 상단 탭의 텍스트와 input의 id값을 인자로 주어 생성 가능하도록 구현. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+이미지 첨부 버튼 TAP 후 이미지 업로드 시, 우측에 업로드한 이미지 파일명이 [X]버튼과 함께 노출 되도록 구현.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Input에 파일 업로드 시, onChange 함수를 실행하며 이벤트를 인자로 받아 파일의 이름을 unshift 하여 추가.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+이미 이미지가 업로드 된 파일이면 배열에서 삭제 후 unshift 로 화면의 상단에 위치하도록 구현.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[X] 버튼 클릭 시, 파일 이름의 배열에서 filter 메서드를 사용하여 onClick 이벤트의 인자로 전달 된 요소만 삭제 하도록 구현.
 
-## Learn More
+### 이미지 단일 추가 컴포넌트
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+상품 썸네일 이미지를 업로드 하는 컴포넌트의 경우, 이미지를 업로드 하면 기존 배열의 요소를 삭제하고 추가하도록 구현하여 하나의 파일만 업로드 가능하도록 구현.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 토글 컴포넌트
 
-### Code Splitting
+useState를 사용하여 onClick 이벤트를 통해 state 상태값 조작 , state 값을 props 로 전달받아 styled-component 속성값 변경 되도록 구현.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
