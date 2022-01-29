@@ -1,6 +1,7 @@
 import Admin from 'pages/admin/Admin';
 import styled from 'styled-components';
 import Tab from './Tab';
+import { Util } from '../utils';
 
 const Container = styled.div`
   display: flex;
@@ -168,7 +169,13 @@ export function CommonLayout() {
             <Tab title="기본 설정" />
             <MainHeader>
               <MainHeaderSpan>상품 등록</MainHeaderSpan>
-              <MainHeaderButton>저장하기</MainHeaderButton>
+              <MainHeaderButton
+                onClick={() =>
+                  Util.getAlertMsg('alert', '필수값을 모두 입력해주세요')
+                }
+              >
+                저장하기
+              </MainHeaderButton>
             </MainHeader>
           </Row>
           <Row>

@@ -1,4 +1,5 @@
 import { DatePicker } from 'antd';
+import moment from 'moment';
 
 export default function FormDatePicker({ attr }) {
   const { title, disabled, type, isRange, onChange } = attr;
@@ -14,6 +15,7 @@ export default function FormDatePicker({ attr }) {
         onChange={onChange}
         showTime={getShowTimeOption(type)}
         format={getFormat(type)}
+        defaultValue={moment()}
       />
       {isRange ? (
         <>
@@ -21,8 +23,9 @@ export default function FormDatePicker({ attr }) {
           <DatePicker
             disabled={disabled}
             onChange={onChange}
-            showTime={getShowTimeOption(attr.type)}
-            format={getFormat(attr.type)}
+            showTime={getShowTimeOption(type)}
+            format={getFormat(type)}
+            defaultValue={moment()}
           />
         </>
       ) : null}
