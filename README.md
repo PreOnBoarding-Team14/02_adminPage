@@ -1,3 +1,7 @@
+## 설치 방법
+    npm install
+    npm start
+
 ## 기능
 
 ### 노출 기한 설정
