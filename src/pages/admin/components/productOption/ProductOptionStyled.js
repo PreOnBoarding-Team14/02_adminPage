@@ -122,11 +122,27 @@ const TextUnit = styled.span`
   margin: 0px 10px;
 `;
 
+const DiscountPrice = styled.span`
+  font-size: 14px;
+  margin: 10px;
+`;
+
 const PlusOptionButton = styled.button`
   margin-top: 15px;
   padding: 10px;
   border: 1px solid gray;
   background: white;
+`;
+
+const MoreOptionWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  margin: 10px;
+`;
+
+const MoreOptionInput = styled.input`
+  margin: 5px;
 `;
 
 const ProductOptionStyled = {
@@ -145,6 +161,9 @@ const ProductOptionStyled = {
   DeleteBtnWrapper,
   TextUnit,
   PlusOptionButton,
+  DiscountPrice,
+  MoreOptionWrapper,
+  MoreOptionInput,
 };
 
 export default ProductOptionStyled;
