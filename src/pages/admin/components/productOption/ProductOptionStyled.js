@@ -75,6 +75,11 @@ const OptionSetAddBtn = styled.div`
   cursor: pointer;
 `;
 
+const DeleteBtnWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const DeleteBtn = styled.button`
   width: 60px;
   font-size: '14px';
@@ -113,6 +118,17 @@ const PriceInput = styled.input`
   border: 1px solid gray;
 `;
 
+const TextUnit = styled.span`
+  margin: 0px 10px;
+`;
+
+const PlusOptionButton = styled.button`
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid gray;
+  background: white;
+`;
+
 const ProductOptionStyled = {
   OptionSetWrapper,
   Container,
@@ -126,6 +142,9 @@ const ProductOptionStyled = {
   OptionName,
   PriceInputWrapper,
   PriceInput,
+  DeleteBtnWrapper,
+  TextUnit,
+  PlusOptionButton,
 };
 
 export default ProductOptionStyled;

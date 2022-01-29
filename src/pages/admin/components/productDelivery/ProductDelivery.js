@@ -47,8 +47,7 @@ export default function ProductDelivery() {
       return newDate;
     });
   };
-  // console.log(startDate, endDate);
-  // 선 주문 예약 배송 토글 버튼 활성화 시
+
   useEffect(() => {
     if (reservation) {
       setStart(false);
@@ -56,7 +55,6 @@ export default function ProductDelivery() {
     }
   }, [reservation]);
 
-  // 사용자 배송일 출발일 지정 및 방문 수령 토글 버튼 활성화 시
   useEffect(() => {
     if (start || receipt) {
       setReservation(false);

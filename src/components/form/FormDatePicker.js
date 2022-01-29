@@ -29,6 +29,7 @@ export default function FormDatePicker({ attr }) {
           return (current && current < moment(start)) || current > moment(end);
         }}
         format={getFormat(type)}
+        defaultValue={moment()}
       />
       {isRange ? (
         <>
@@ -46,6 +47,7 @@ export default function FormDatePicker({ attr }) {
             onChange={onEndDateChange}
             showTime={getShowTimeOption(attr.type)}
             format={getFormat(attr.type)}
+            defaultValue={moment()}
           />
         </>
       ) : null}
