@@ -38,7 +38,6 @@ export default function FormImagePreview() {
   const onasdChange = (e) => {
     if (!e.target.files[0].type.match('image/.*')) {
       alert('이미지 확장자만 업로드 가능합니다.');
-      //console.log(e.target.files[0].type);
       return;
     }
     setPreview((oldPreveiw) => {
@@ -46,7 +45,6 @@ export default function FormImagePreview() {
       const newPreview = { name: e.target.files[0].name, src: src };
       return newPreview;
     });
-    //console.log(preview);
   };
   return (
     <AddImageButtonWrapper style={{ backgroundImage: `url(${preview.src})` }}>

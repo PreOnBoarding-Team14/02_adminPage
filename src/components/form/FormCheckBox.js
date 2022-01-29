@@ -25,8 +25,6 @@ const Text = styled.div`
 
 export default function FormCheckBox({ attrs }) {
   const { name, data, onChange } = attrs;
-  //console.log(isCheck[0]);
-  //console.log(data);
 
   return (
     <form>

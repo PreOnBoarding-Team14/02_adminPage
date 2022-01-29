@@ -47,6 +47,7 @@ export default function FormDatePicker({ attr }) {
             onChange={onEndDateChange}
             showTime={getShowTimeOption(attr.type)}
             format={getFormat(attr.type)}
+            defaultValue={moment()}
           />
         </>
       ) : null}

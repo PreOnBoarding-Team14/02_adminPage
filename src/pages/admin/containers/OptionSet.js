@@ -3,14 +3,8 @@ import { FormImagePreview } from '../../../components';
 import { OptionItem } from '.';
 import ProductOptionStyled from '../components/productOption/ProductOptionStyled';
 import moment from 'moment';
-import styled from 'styled-components';
 
-const DeleteBtnWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const { OptionSetAddBtn, DeleteBtn } = ProductOptionStyled;
+const { OptionSetAddBtn, DeleteBtn, DeleteBtnWrapper } = ProductOptionStyled;
 
 function OptionSet({ optionSetId, onDelete, onAdd, optionItemArr }) {
   return (
