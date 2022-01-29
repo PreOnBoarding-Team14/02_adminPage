@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FormCheckBox, FormInput } from 'components';
 import InputBar from './InputBar';
 import { useCallback, useState } from 'react';
-import AddImage from './AddImage';
+import FormImagePreview from 'components/form/FormImagePreview';
 
 const Container = styled.div`
   width: 100%;
@@ -733,11 +733,9 @@ export default function ProductInfo() {
             <Text>상품 코드</Text>
           </CodeGrid>
           <InputBar placeholder="상품 구성 소개 정보를 입력해 주세요." />
+          <ImageLayout>{/* <AddImage /> */}</ImageLayout>
           <ImageLayout>
-            <AddImage />
-          </ImageLayout>
-          <ImageLayout>
-            <AddImage />
+            <FormImagePreview />
           </ImageLayout>
           <SecondRow style={{ paddingLeft: '20px' }}>5개</SecondRow>
         </Cols>
