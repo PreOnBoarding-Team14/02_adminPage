@@ -401,6 +401,7 @@ export default function ProductInfo() {
 
   const onTagClick = (e) => {
     //console.log(e.target.innerText);
+    console.log(e.target.innerText);
     setTag((oldTag) => {
       const findIndex = oldTag.findIndex(
         (item) => item.value === e.target.innerText
@@ -576,25 +577,23 @@ export default function ProductInfo() {
                         </TagBox>
                       );
                     } else if (query.length === 1) {
-                      if (match) {
+                      if (item.includes(query[0])) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
                         );
-                      } else {
+                      } else if (match) {
                         return (
-                          item.includes(query[0]) && (
-                            <TagBox>
-                              <TagSpan>{item}</TagSpan>
-                            </TagBox>
-                          )
+                          <TagBox onClick={onTagClick}>
+                            <TagSpan>{item}</TagSpan>
+                          </TagBox>
                         );
                       }
                     } else if (query.length === 2) {
                       if (match) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
                         );
@@ -605,7 +604,7 @@ export default function ProductInfo() {
                         return (
                           item.includes(query[0]) ||
                           (item.includes(query[1]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           ))
@@ -614,7 +613,7 @@ export default function ProductInfo() {
                         return (
                           item.includes(query[0]) &&
                           item.includes(query[1]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -623,7 +622,7 @@ export default function ProductInfo() {
                     } else if (query.length === 3) {
                       if (match) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
                         );
@@ -636,7 +635,7 @@ export default function ProductInfo() {
                           item.includes(query[0]) ||
                           item.includes(query[1]) ||
                           item.includes(query[2]) || (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -646,7 +645,7 @@ export default function ProductInfo() {
                           item.includes(query[0]) &&
                           item.includes(query[1]) &&
                           item.includes(query[2]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -655,7 +654,7 @@ export default function ProductInfo() {
                     } else if (query.length === 4) {
                       if (match) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
                         );
@@ -665,7 +664,7 @@ export default function ProductInfo() {
                           item.includes(query[1]) &&
                           item.includes(query[2]) &&
                           item.includes(query[3]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -674,7 +673,7 @@ export default function ProductInfo() {
                     } else if (query.length === 5) {
                       if (match) {
                         return (
-                          <TagBox>
+                          <TagBox onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
                         );
@@ -685,7 +684,7 @@ export default function ProductInfo() {
                           item.includes(query[2]) &&
                           item.includes(query[3]) &&
                           item.includes(query[4]) && (
-                            <TagBox>
+                            <TagBox onClick={onTagClick}>
                               <TagSpan>{item}</TagSpan>
                             </TagBox>
                           )
@@ -701,7 +700,7 @@ export default function ProductInfo() {
           <CodeGrid>
             <InputBar placeholder="상품명을 입력해 주세요." />
             <GrayText>상품 코드</GrayText>
-            <Text>상품 코드</Text>
+            <Text>1643435697397</Text>
           </CodeGrid>
           <InputBar placeholder="상품 구성 소개 정보를 입력해 주세요." />
           <ImageLayout>
