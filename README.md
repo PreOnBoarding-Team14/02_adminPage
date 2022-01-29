@@ -7,63 +7,63 @@
     
 
 ## 📂 파일 구조
-📦src
- ┣ 📂components
- ┃ ┣ 📂form
- ┃ ┃ ┣ 📜FormAddImg.js
- ┃ ┃ ┣ 📜FormAddOneImg.js
- ┃ ┃ ┣ 📜FormCheckBox.js
- ┃ ┃ ┣ 📜FormDatePicker.js
- ┃ ┃ ┣ 📜FormImagePreview.js
- ┃ ┃ ┣ 📜FormInput.js
- ┃ ┃ ┣ 📜FormRadio.js
- ┃ ┃ ┣ 📜FormSelect.js
- ┃ ┃ ┣ 📜FormTextArea.js
- ┃ ┃ ┗ 📜FormToggle.js
- ┃ ┗ 📜index.js
- ┣ 📂layout
- ┃ ┣ 📜CommonLayout.js
- ┃ ┗ 📜Tab.js
- ┣ 📂pages
- ┃ ┗ 📂admin
- ┃ ┃ ┣ 📂components
- ┃ ┃ ┃ ┣ 📂exposureNSalesPeriod
- ┃ ┃ ┃ ┃ ┣ 📜ExposureNSalesPeriod.js
- ┃ ┃ ┃ ┃ ┣ 📜ExposureNSalesPeriodStyled.js
- ┃ ┃ ┃ ┃ ┣ 📜ExposureRadio.js
- ┃ ┃ ┃ ┃ ┣ 📜SalesRadio.js
- ┃ ┃ ┃ ┃ ┗ 📜index.js
- ┃ ┃ ┃ ┣ 📂productDelivery
- ┃ ┃ ┃ ┃ ┣ 📜ProductDelivery.js
- ┃ ┃ ┃ ┃ ┗ 📜ProductDeliveryStyled.js
- ┃ ┃ ┃ ┣ 📂productImg
- ┃ ┃ ┃ ┃ ┗ 📜ProductImg.js
- ┃ ┃ ┃ ┣ 📂productInfo
- ┃ ┃ ┃ ┃ ┣ 📜InputBar.js
- ┃ ┃ ┃ ┃ ┗ 📜ProductInfo.js
- ┃ ┃ ┃ ┣ 📂productInfoNotice
- ┃ ┃ ┃ ┃ ┣ 📜ProductInfoNotice.js
- ┃ ┃ ┃ ┃ ┗ 📜ProductInfoNoticeStyled.js
- ┃ ┃ ┃ ┣ 📂productOption
- ┃ ┃ ┃ ┃ ┣ 📜ProductOption.js
- ┃ ┃ ┃ ┃ ┗ 📜ProductOptionStyled.js
- ┃ ┃ ┃ ┗ 📜index.js
- ┃ ┃ ┣ 📂containers
- ┃ ┃ ┃ ┣ 📜MoreOption.js
- ┃ ┃ ┃ ┣ 📜OptionItem.js
- ┃ ┃ ┃ ┣ 📜OptionSet.js
- ┃ ┃ ┃ ┗ 📜index.js
- ┃ ┃ ┗ 📜Admin.js
- ┣ 📂styles
- ┃ ┣ 📜GlobalStyle.js
- ┃ ┣ 📜Theme.js
- ┃ ┗ 📜index.js
- ┣ 📂utils
- ┃ ┣ 📜DataSet.js
- ┃ ┣ 📜Util.js
- ┃ ┗ 📜index.js
- ┣ 📜App.js
- ┗ 📜index.js
+src
+ ┣ components
+ ┃ ┣ form
+ ┃ ┃ ┣ FormAddImg.js
+ ┃ ┃ ┣ FormAddOneImg.js
+ ┃ ┃ ┣ FormCheckBox.js
+ ┃ ┃ ┣ FormDatePicker.js
+ ┃ ┃ ┣ FormImagePreview.js
+ ┃ ┃ ┣ FormInput.js
+ ┃ ┃ ┣ FormRadio.js
+ ┃ ┃ ┣ FormSelect.js
+ ┃ ┃ ┣ FormTextArea.js
+ ┃ ┃ ┗ FormToggle.js
+ ┃ ┗ index.js
+ ┣ layout
+ ┃ ┣ CommonLayout.js
+ ┃ ┗ Tab.js
+ ┣ pages
+ ┃ ┗ admin
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┣ exposureNSalesPeriod
+ ┃ ┃ ┃ ┃ ┣ ExposureNSalesPeriod.js
+ ┃ ┃ ┃ ┃ ┣ ExposureNSalesPeriodStyled.js
+ ┃ ┃ ┃ ┃ ┣ ExposureRadio.js
+ ┃ ┃ ┃ ┃ ┣ SalesRadio.js
+ ┃ ┃ ┃ ┃ ┗ index.js
+ ┃ ┃ ┃ ┣ productDelivery
+ ┃ ┃ ┃ ┃ ┣ ProductDelivery.js
+ ┃ ┃ ┃ ┃ ┗ ProductDeliveryStyled.js
+ ┃ ┃ ┃ ┣ productImg
+ ┃ ┃ ┃ ┃ ┗ ProductImg.js
+ ┃ ┃ ┃ ┣ productInfo
+ ┃ ┃ ┃ ┃ ┣ InputBar.js
+ ┃ ┃ ┃ ┃ ┗ ProductInfo.js
+ ┃ ┃ ┃ ┣ productInfoNotice
+ ┃ ┃ ┃ ┃ ┣ ProductInfoNotice.js
+ ┃ ┃ ┃ ┃ ┗ ProductInfoNoticeStyled.js
+ ┃ ┃ ┃ ┣ productOption
+ ┃ ┃ ┃ ┃ ┣ ProductOption.js
+ ┃ ┃ ┃ ┃ ┗ ProductOptionStyled.js
+ ┃ ┃ ┃ ┗ index.js
+ ┃ ┃ ┣ containers
+ ┃ ┃ ┃ ┣ MoreOption.js
+ ┃ ┃ ┃ ┣ OptionItem.js
+ ┃ ┃ ┃ ┣ OptionSet.js
+ ┃ ┃ ┃ ┗ index.js
+ ┃ ┃ ┗ Admin.js
+ ┣ styles
+ ┃ ┣ GlobalStyle.js
+ ┃ ┣ Theme.js
+ ┃ ┗ index.js
+ ┣ utils
+ ┃ ┣ DataSet.js
+ ┃ ┣ Util.js
+ ┃ ┗ index.js
+ ┣ App.js
+ ┗ index.js
  
 ## 📝 기능
 
