@@ -91,7 +91,9 @@ export default function FormAddImg({ AddImgType, InputId }) {
 
   return (
     <AddImageWrapper>
-      <TopText>{AddImgType}</TopText>
+      <TopText style={{ display: AddImgType ? 'visible' : 'none' }}>
+        {AddImgType}
+      </TopText>
       <BottomContent>
         <AddImageButtonWrapper>
           <AddImageButton htmlFor={InputId}>+ 이미지 추가</AddImageButton>

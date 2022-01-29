@@ -50,11 +50,11 @@ export default function FormImagePreview() {
   };
   return (
     <AddImageButtonWrapper style={{ backgroundImage: `url(${preview.src})` }}>
-      <AddImageButton htmlFor="ex_file">+ 이미지 첨부</AddImageButton>
+      <AddImageButton htmlFor="preview">+ 이미지 첨부</AddImageButton>
       <AddImageButtonInput
         type="file"
         accept="image/*"
-        id="ex_file"
+        id="preview"
         onChange={onasdChange}
       />
       {/* <Image src={preview.src} /> */}
