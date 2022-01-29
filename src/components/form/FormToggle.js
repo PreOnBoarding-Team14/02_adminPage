@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const ToggleWrapper = styled.button`
@@ -8,7 +8,7 @@ const ToggleWrapper = styled.button`
   justify-content: center;
   width: 50px;
   height: 20px;
-  margin: 20px 0px;
+  margin: 20px;
   background: none;
   border: none;
   cursor: pointer;
@@ -31,8 +31,7 @@ const ToggleBackground = styled.div`
   background: ${(props) => (props.isClick ? '#AEA8E6;' : '#9F9F9F;')};
 `;
 
-export default function FormToggle() {
-  const [isClick, setIsClick] = useState(false);
+export default function FormToggle({ isClick, setIsClick }) {
   const clickToggle = () => {
     setIsClick(!isClick);
   };
