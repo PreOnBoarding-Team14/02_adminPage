@@ -18,8 +18,10 @@ const RowWrapper = styled.div`
 const TitleBox = styled.div`
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  padding: 0px 20px;
   height: 40px;
+  font-size: ${({ theme }) => theme.bigFontSize};
+  font-weight: bold;
   border: 1px solid ${({ theme }) => theme.borderGrayColor};
 `;
 
