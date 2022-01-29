@@ -53,6 +53,9 @@ export default function ProductDelivery() {
   const [endDate, setEndDate] = useState('');
 
   const onStartChange = (e) => {
+    if (!e._d) {
+      return;
+    }
     setStartDate((old) => {
       const start = e._d;
       const year = start.getFullYear();
@@ -64,6 +67,9 @@ export default function ProductDelivery() {
   };
 
   const onEndChange = (e) => {
+    if (!e._d) {
+      return;
+    }
     setEndDate((old) => {
       const start = e._d;
       const year = start.getFullYear();
