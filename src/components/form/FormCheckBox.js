@@ -41,8 +41,6 @@ export default function FormCheckBox({ attrs }) {
               checked={item.checked}
             />
             <Text>{item.value}</Text>
-            {/* <CheckBox type="checkbox" value={item} name={name} />
-            <Text>{item}</Text> */}
           </CheckAndText>
         </Label>
       ))}
