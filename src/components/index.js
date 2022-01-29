@@ -7,3 +7,4 @@ export { default as FormDatePicker } from './form/FormDatePicker';
 export { default as FormToggle } from './form/FormToggle';
 export { default as FormAddImg } from './form/FormAddImg';
 export { default as FormAddOneImg } from './form/FormAddOneImg';
+export { default as FormImagePreview } from './form/FormImagePreview';
