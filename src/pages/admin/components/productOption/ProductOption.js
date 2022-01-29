@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import { OptionSet } from '../../containers';
-import ProductOptionStyled from './ProductOption-styled';
+import ProductOptionStyled from './ProductOptionStyled';
+import moment from 'moment';
 
 const {
   Container,
@@ -9,8 +10,6 @@ const {
   RequiredStar,
   NullOption,
   OptionSetWrapper,
-  OptionSetItem,
-  DeleteBtn,
   OptionSetAddBtn,
 } = ProductOptionStyled;
 
@@ -51,7 +50,7 @@ function ProductOption() {
     switch (type) {
       case 'addOptionSet':
         const optionProps = {
-          optionSetId: optionSetArr.length + 1,
+          optionSetId: moment().format('MM-DD'),
           optionItemArr: [
             {
               optionName: '',
