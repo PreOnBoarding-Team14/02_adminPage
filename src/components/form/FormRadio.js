@@ -7,6 +7,11 @@ const Container = styled.div`
 const Radio = styled.input.attrs({ type: 'radio' })`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
+  cursor: pointer;
+`;
+
+const Label = styled.label`
+  cursor: pointer;
 `;
 
 export default function FormRadio({ attr, radio }) {
@@ -25,9 +30,9 @@ export default function FormRadio({ attr, radio }) {
             height={height}
             readOnly
           />
-          <label htmlFor={e.id} onClick={onClick}>
+          <Label htmlFor={e.id} onClick={onClick}>
             {e.text}
-          </label>
+          </Label>
         </Container>
       ))}
     </>
