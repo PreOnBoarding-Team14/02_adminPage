@@ -6,6 +6,7 @@ const CheckBox = styled.input`
   flex-direction: column;
   height: 25px;
   display: flex;
+  cursor: pointer;
 `;
 
 const Label = styled.label`
