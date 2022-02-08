@@ -5,7 +5,7 @@
 ## 💻 설치 방법
 
     npm install
-    npm run dev
+    npm start
     
     
     
