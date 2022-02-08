@@ -1,5 +1,5 @@
 ## 배포 주소
-<a href="https://dashboard-12313.herokuapp.com/">데시보드 페이지</a>
+<a href="https://deploy-preview-38--vibrant-mahavira-12a410.netlify.app/">어드민 페이지</a>
 
 
 ## 💻 설치 방법
