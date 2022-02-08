@@ -12,11 +12,11 @@
 
 ## 📂 파일 구조
   
-src. 
- ┣ assets. 
- ┃ ┣ images. 
- ┃ ┃ ┣ arrow.png. 
- ┃ ┃ ┣ colorlogo.png. 
+src.   
+ ┣ assets.   
+ ┃ ┣ images.   
+ ┃ ┃ ┣ arrow.png.   
+ ┃ ┃ ┣ colorlogo.png.   
  ┃ ┃ ┣ index.tsx. 
  ┃ ┃ ┣ logo.png. 
  ┃ ┃ ┣ menu.png. 
