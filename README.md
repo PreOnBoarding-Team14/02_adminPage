@@ -1,5 +1,5 @@
 ## 배포 주소
-<a href="https://deploy-preview-38--vibrant-mahavira-12a410.netlify.app/">어드민 페이지</a>
+<a href="https://dashboard-12313.herokuapp.com/">데시보드 페이지</a>
 
 
 ## 💻 설치 방법
@@ -12,63 +12,48 @@
 
 ## 📂 파일 구조
   
-src  
- ┣ components  
- ┃ ┣ form  
- ┃ ┃ ┣ FormAddImg.js  
- ┃ ┃ ┣ FormAddOneImg.js  
- ┃ ┃ ┣ FormCheckBox.js  
- ┃ ┃ ┣ FormDatePicker.js  
- ┃ ┃ ┣ FormImagePreview.js  
- ┃ ┃ ┣ FormInput.js  
- ┃ ┃ ┣ FormRadio.js  
- ┃ ┃ ┣ FormSelect.js  
- ┃ ┃ ┣ FormTextArea.js  
- ┃ ┃ ┗ FormToggle.js  
- ┃ ┗ index.js  
- ┣ layout  
- ┃ ┣ CommonLayout.js  
- ┃ ┗ Tab.js  
- ┣ pages  
- ┃ ┗ admin  
- ┃ ┃ ┣ components  
- ┃ ┃ ┃ ┣ exposureNSalesPeriod  
- ┃ ┃ ┃ ┃ ┣ ExposureNSalesPeriod.js  
- ┃ ┃ ┃ ┃ ┣ ExposureNSalesPeriodStyled.js  
- ┃ ┃ ┃ ┃ ┣ ExposureRadio.js  
- ┃ ┃ ┃ ┃ ┣ SalesRadio.js  
- ┃ ┃ ┃ ┃ ┗ index.js  
- ┃ ┃ ┃ ┣ productDelivery  
- ┃ ┃ ┃ ┃ ┣ ProductDelivery.js  
- ┃ ┃ ┃ ┃ ┗ ProductDeliveryStyled.js  
- ┃ ┃ ┃ ┣ productImg  
- ┃ ┃ ┃ ┃ ┗ ProductImg.js  
- ┃ ┃ ┃ ┣ productInfo  
- ┃ ┃ ┃ ┃ ┣ InputBar.js  
- ┃ ┃ ┃ ┃ ┗ ProductInfo.js  
- ┃ ┃ ┃ ┣ productInfoNotice  
- ┃ ┃ ┃ ┃ ┣ ProductInfoNotice.js  
- ┃ ┃ ┃ ┃ ┗ ProductInfoNoticeStyled.js  
- ┃ ┃ ┃ ┣ productOption  
- ┃ ┃ ┃ ┃ ┣ ProductOption.js  
- ┃ ┃ ┃ ┃ ┗ ProductOptionStyled.js  
- ┃ ┃ ┃ ┗ index.js  
- ┃ ┃ ┣ containers  
- ┃ ┃ ┃ ┣ MoreOption.js  
- ┃ ┃ ┃ ┣ OptionItem.js  
- ┃ ┃ ┃ ┣ OptionSet.js  
- ┃ ┃ ┃ ┗ index.js  
- ┃ ┃ ┗ Admin.js  
- ┣ styles  
- ┃ ┣ GlobalStyle.js  
- ┃ ┣ Theme.js  
- ┃ ┗ index.js  
- ┣ utils  
- ┃ ┣ DataSet.js  
- ┃ ┣ Util.js  
- ┃ ┗ index.js  
- ┣ App.js  
- ┗ index.js  
+src. 
+ ┣ assets. 
+ ┃ ┣ images. 
+ ┃ ┃ ┣ arrow.png. 
+ ┃ ┃ ┣ colorlogo.png. 
+ ┃ ┃ ┣ index.tsx. 
+ ┃ ┃ ┣ logo.png. 
+ ┃ ┃ ┣ menu.png. 
+ ┃ ┃ ┣ refresh.png. 
+ ┃ ┃ ┣ refresh_24px.png:Zone.Identifier. 
+ ┃ ┃ ┣ vector.png. 
+ ┃ ┃ ┗ vector2.png. 
+ ┃ ┗ styles. 
+ ┃ ┃ ┣ CardStyle.ts. 
+ ┃ ┃ ┣ DashboardStyle.ts. 
+ ┃ ┃ ┣ GlobalStyle.ts. 
+ ┃ ┃ ┣ ModalStyle.ts. 
+ ┃ ┃ ┣ NavStyle.ts. 
+ ┃ ┃ ┣ Theme.ts. 
+ ┃ ┃ ┣ index.ts. 
+ ┃ ┃ ┗ styled.d.ts. 
+ ┣ components. 
+ ┃ ┣ Card.tsx   
+ ┃ ┣ Material.ts. 
+ ┃ ┣ Menu.tsx. 
+ ┃ ┣ Method.ts. 
+ ┃ ┣ Modal.tsx. 
+ ┃ ┣ Nav.tsx. 
+ ┃ ┣ Toggle.tsx. 
+ ┃ ┣ index.tsx. 
+ ┃ ┗ type.ts. 
+ ┣ hooks. 
+ ┃ ┣ index.tsx. 
+ ┃ ┗ useRequestApi.tsx. 
+ ┣ pages. 
+ ┃ ┗ dashboard. 
+ ┃ ┃ ┗ Dashboard.tsx. 
+ ┣ utils. 
+ ┃ ┣ HttpUtil.tsx. 
+ ┃ ┗ index.tsx. 
+ ┣ App.tsx. 
+ ┗ index.tsx.     
  
 ## 📝 기능
 
