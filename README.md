@@ -1,9 +1,6 @@
 ## 배포 주소
 ## <a href="https://vibrant-mahavira-12a410.netlify.app/">어드민 페이지</a>
 
-## 회고록
-## <a href="https://hell-of-company-builder.tistory.com/254?category=921712">블로그 회고록</a>
-
 ## 💻 설치 방법
 
     npm install
