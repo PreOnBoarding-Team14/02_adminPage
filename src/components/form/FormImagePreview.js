@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 
 const AddImageButtonWrapper = styled.div`
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.subBgColor};
-  background-position: center center;
+  background-position: center;
   background-size: cover;
+  background-image: ${({ imageSrc }) => `url(${imageSrc})`};
 `;
 
 const AddImageButton = styled.label`
@@ -47,7 +47,7 @@ export default function FormImagePreview() {
     });
   };
   return (
-    <AddImageButtonWrapper style={{ backgroundImage: `url(${preview.src})` }}>
+    <AddImageButtonWrapper imageSrc={preview.src}>
       <AddImageButton htmlFor="preview">+ 이미지 첨부</AddImageButton>
       <AddImageButtonInput
         type="file"

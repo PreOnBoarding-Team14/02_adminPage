@@ -337,7 +337,6 @@ export default function ProductInfo() {
       }
     });
   }, []);
-
   return (
     <Container>
       <Title>상품 기본 정보</Title>
@@ -433,134 +432,22 @@ export default function ProductInfo() {
                 </InputBox>
               </FilterSearch>
               <FilterTagBox>
-                {(PATTERN.test(query) === false) | (query.length > 5) &&
-                query.length !== 0 ? (
-                  <p>검색 결과 없음</p>
-                ) : (
-                  TAG.sort().map((item) => {
-                    const match = item === query;
-                    if (query.length === 0) {
-                      return (
-                        <TagBox onClick={onTagClick}>
-                          <TagSpan>{item}</TagSpan>
-                        </TagBox>
-                      );
-                    } else if (query.length === 1) {
-                      if (item.includes(query[0])) {
-                        return (
-                          <TagBox onClick={onTagClick}>
+                {query.length === 0
+                  ? TAG.map((item) => (
+                      <TagBox key={item} onClick={onTagClick}>
+                        <TagSpan>{item}</TagSpan>
+                      </TagBox>
+                    ))
+                  : TAG.map(
+                      (item) =>
+                        item?.includes(query) && (
+                          <TagBox key={item} onClick={onTagClick}>
                             <TagSpan>{item}</TagSpan>
                           </TagBox>
-                        );
-                      } else if (match) {
-                        return (
-                          <TagBox onClick={onTagClick}>
-                            <TagSpan>{item}</TagSpan>
-                          </TagBox>
-                        );
-                      }
-                    } else if (query.length === 2) {
-                      if (match) {
-                        return (
-                          <TagBox onClick={onTagClick}>
-                            <TagSpan>{item}</TagSpan>
-                          </TagBox>
-                        );
-                      } else if (
-                        item.includes(query[0]) ||
-                        item.includes(query[1])
-                      ) {
-                        return (
-                          item.includes(query[0]) ||
-                          (item.includes(query[1]) && (
-                            <TagBox onClick={onTagClick}>
-                              <TagSpan>{item}</TagSpan>
-                            </TagBox>
-                          ))
-                        );
-                      } else {
-                        return (
-                          item.includes(query[0]) &&
-                          item.includes(query[1]) && (
-                            <TagBox onClick={onTagClick}>
-                              <TagSpan>{item}</TagSpan>
-                            </TagBox>
-                          )
-                        );
-                      }
-                    } else if (query.length === 3) {
-                      if (match) {
-                        return (
-                          <TagBox onClick={onTagClick}>
-                            <TagSpan>{item}</TagSpan>
-                          </TagBox>
-                        );
-                      } else if (
-                        item.includes(query[0]) ||
-                        item.includes(query[1]) ||
-                        item.includes(query[2])
-                      ) {
-                        return (
-                          item.includes(query[0]) ||
-                          item.includes(query[1]) ||
-                          item.includes(query[2]) || (
-                            <TagBox onClick={onTagClick}>
-                              <TagSpan>{item}</TagSpan>
-                            </TagBox>
-                          )
-                        );
-                      } else {
-                        return (
-                          item.includes(query[0]) &&
-                          item.includes(query[1]) &&
-                          item.includes(query[2]) && (
-                            <TagBox onClick={onTagClick}>
-                              <TagSpan>{item}</TagSpan>
-                            </TagBox>
-                          )
-                        );
-                      }
-                    } else if (query.length === 4) {
-                      if (match) {
-                        return (
-                          <TagBox onClick={onTagClick}>
-                            <TagSpan>{item}</TagSpan>
-                          </TagBox>
-                        );
-                      } else {
-                        return (
-                          item.includes(query[0]) &&
-                          item.includes(query[1]) &&
-                          item.includes(query[2]) &&
-                          item.includes(query[3]) && (
-                            <TagBox onClick={onTagClick}>
-                              <TagSpan>{item}</TagSpan>
-                            </TagBox>
-                          )
-                        );
-                      }
-                    } else if (query.length === 5) {
-                      if (match) {
-                        return (
-                          <TagBox onClick={onTagClick}>
-                            <TagSpan>{item}</TagSpan>
-                          </TagBox>
-                        );
-                      } else {
-                        return (
-                          item.includes(query[0]) &&
-                          item.includes(query[1]) &&
-                          item.includes(query[2]) &&
-                          item.includes(query[3]) &&
-                          item.includes(query[4]) && (
-                            <TagBox onClick={onTagClick}>
-                              <TagSpan>{item}</TagSpan>
-                            </TagBox>
-                          )
-                        );
-                      }
-                    }
-                  })
+                        )
+                    )}
+                {TAG.filter((item) => item.includes(query)).length === 0 && (
+                  <div>검색 결과 없음</div>
                 )}
               </FilterTagBox>
             </FilterDiv>
