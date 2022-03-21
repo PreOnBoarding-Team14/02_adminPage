@@ -215,13 +215,3 @@ src.
 - 이미지 첨부 버튼 제공 및 image 파일을 받아서 불러온 이미지의 미리보기 기능을 지원하도록 구현
 
 
-
-
-## .eslintrc 와 .prettierrc 그리고 babel.config 을 적용한 상태입니다.
-
-
-
-
-## jsconfig.json 세팅
-
-    jsconfig.json 파일을 통해 baseUrl : "src" 폴더로 해놓아서 절대경로를 이용하는 상태입니다.
